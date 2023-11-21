@@ -1,0 +1,34 @@
+C51 COMPILER V9.59.0.0   DELAY_SEP                                                         11/21/2023 11:57:09 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE DELAY_SEP
+OBJECT MODULE PLACED IN .\Objects\delay_sep.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE delay_sep.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\delay_sep.lst) TABS(2) OBJECT(.\Objects\delay_sep.obj)
+
+line level    source
+
+   1          #include"delay_sep.h"
+   2          
+   3          void delay(unsigned int time)                     //delay funcation with one argument
+   4          {
+   5   1        unsigned int i,j;                               //decleration of variables inside funcation
+   6   1        for(i = 0; i < time; i++)                       //for loop
+   7   1        {
+   8   2          for(j = 0; j < 1000; j++);                    //nested for loop
+   9   2        }
+  10   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     32    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

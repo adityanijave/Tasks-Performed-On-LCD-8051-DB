@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\lcd_8bit.obj",
+".\Objects\delay_sep.obj",
+".\Objects\lcd_8bit_lib.obj" 
+TO ".\Objects\LCD_EightBit" 
+PRINT(".\Listings\LCD_EightBit.m51")

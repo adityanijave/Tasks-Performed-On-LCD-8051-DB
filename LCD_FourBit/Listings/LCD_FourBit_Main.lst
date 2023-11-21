@@ -1,0 +1,57 @@
+C51 COMPILER V9.59.0.0   LCD_FOURBIT_MAIN                                                  11/21/2023 14:52:09 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD_FOURBIT_MAIN
+OBJECT MODULE PLACED IN .\Objects\LCD_FourBit_Main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LCD_FourBit_Main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\LCD_FourBit_Main.lst) TABS(2) OBJECT(.\Objects\LCD_FourBit_Main.obj)
+
+line level    source
+
+   1          //including header file
+   2          #include <reg51.h>
+   3          #include"LCD_FourBit.h"
+   4          #include"delay.h"
+   5          
+   6          //main funcation
+   7          void main()
+   8          {
+   9   1        //initization funcation
+  10   1        init();
+  11   1        
+  12   1        //cmd funcation
+  13   1        LCD_cmd(0x80);
+  14   1        
+  15   1        //data funcation
+  16   1        LCD_data('A');
+  17   1        LCD_data('D');
+  18   1        LCD_data('I');
+  19   1        LCD_data('T');
+  20   1        LCD_data('Y');
+  21   1        LCD_data('A');
+  22   1        
+  23   1        //cmd funcation
+  24   1        LCD_cmd(0xC0);
+  25   1        
+  26   1        //data funcation
+  27   1        LCD_data('N');
+  28   1        LCD_data('I');
+  29   1        LCD_data('J');
+  30   1        LCD_data('A');
+  31   1        LCD_data('V');
+  32   1        LCD_data('E');
+  33   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

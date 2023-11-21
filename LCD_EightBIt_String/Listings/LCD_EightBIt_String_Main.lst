@@ -1,0 +1,90 @@
+C51 COMPILER V9.59.0.0   LCD_EIGHTBIT_STRING_MAIN                                          11/21/2023 12:36:18 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD_EIGHTBIT_STRING_MAIN
+OBJECT MODULE PLACED IN .\Objects\LCD_EightBIt_String_Main.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LCD_EightBIt_String_Main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\LCD_EightBIt_String_Main.lst) TABS(2) OBJECT(.\Objects\LCD_EightBIt_String_Main.obj)
+
+line level    source
+
+   1          //incliding header files
+   2          #include<reg51.h>
+   3          #include"LCD_EightBit_String.h"
+   4          #include"delay.h"
+   5          
+   6          //forward decleration of user defined funcation
+   7          //void LCD_string(char []);
+   8          void LCD_string(char *);
+   9          
+  10          //main funcaion
+  11          void main()
+  12          {
+  13   1        
+  14   1        init();                                     //calling initi. funcation 
+  15   1        LCD_cmd(0x80);                              //cmd funcation to forcing cursor to start from 1st row and 1st col
+  16   1        
+  17   1        //string funcation that divides each char of string and pass it to data funcation
+  18   1        LCD_string("Welcome Home");                 //string = "Welcome Home"
+  19   1        
+  20   1        LCD_cmd(0xC0);                              //cmd funcation to forcing cursor to start from 2nd row and 1st col
+  21   1        
+  22   1        //string funcation that divides each char of string and pass it to data funcation
+  23   1        LCD_string("Aditya A Nijave");              //string = "Aditya A Nijave"
+  24   1      }
+  25          
+  26          
+  27          
+  28          /*void LCD_string(char str[])
+  29          { int i = 0;
+  30            while(str[i] != '\0')
+  31            {
+  32              LCD_data(str[i]);
+  33              i++;
+  34            }
+  35            
+  36          }
+  37          */
+  38          
+  39          /*
+  40          void LCD_string(char *str)
+  41          {
+  42            int i = 0;
+  43            while(*str != '\0')
+  44            {
+  45              LCD_data(*str);
+  46              str++;
+  47            }
+  48          }
+  49          */
+  50          
+  51          
+  52          /**/
+  53          //try later (output changes with for loop and while loop)
+  54          
+C51 COMPILER V9.59.0.0   LCD_EIGHTBIT_STRING_MAIN                                          11/21/2023 12:36:18 PAGE 2   
+
+  55          //funcation defination of user defination
+  56          void LCD_string(char str[])                     //funcation one parameter
+  57          {
+  58   1        unsigned int i;                               //decleration of variables inside the funcation
+  59   1        for(i = 0; str[i] != '\0'; ++i)               //for loop to itr the char of string
+  60   1        {
+  61   2          LCD_data(str[i]);                           //lcd data funcation 
+  62   2          delay(1);                                   //calling data funcation with one
+  63   2        }
+  64   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     81    ----
+   CONSTANT SIZE    =     29    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       5
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

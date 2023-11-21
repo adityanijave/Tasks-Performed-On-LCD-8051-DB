@@ -1,0 +1,5 @@
+".\Objects\STARTUP.obj",
+".\Objects\LCD_4BIT_DIFF_PORTPIN_MAIN.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\LCD_4BIT_DIFF_PORTPIN" 
+PRINT(".\Listings\LCD_4BIT_DIFF_PORTPIN.m51")

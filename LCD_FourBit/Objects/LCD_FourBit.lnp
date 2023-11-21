@@ -1,0 +1,6 @@
+".\Objects\STARTUP.obj",
+".\Objects\LCD_FourBit_Main.obj",
+".\Objects\LCD_FourBit.obj",
+".\Objects\delay.obj" 
+TO ".\Objects\LCD_FourBit" 
+PRINT(".\Listings\LCD_FourBit.m51")

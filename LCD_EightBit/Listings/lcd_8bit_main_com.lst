@@ -1,0 +1,98 @@
+C51 COMPILER V9.59.0.0   LCD_8BIT_MAIN_COM                                                 10/09/2023 17:13:46 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD_8BIT_MAIN_COM
+OBJECT MODULE PLACED IN .\Objects\lcd_8bit_main_com.obj
+COMPILER INVOKED BY: D:\setups\C51\BIN\C51.EXE lcd_8bit_main_com.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\L
+                    -istings\lcd_8bit_main_com.lst) TABS(2) OBJECT(.\Objects\lcd_8bit_main_com.obj)
+
+line level    source
+
+   1          #include <REGX51.H>
+   2          
+   3          
+   4          sfr LED_port = 0xA0;
+   5          sbit RS = P1^0;
+   6          sbit RW = P1^1;
+   7          sbit EN = P1^2;
+   8          
+   9          
+  10          void LCD_CMD(unsigned char);
+  11          void LCD_DATA(unsigned char);
+  12          void init();
+  13          void delay(unsigned int);
+  14          
+  15          void main()
+  16          {
+  17   1        init();
+  18   1        LCD_CMD(0x38);
+  19   1        LCD_DATA('P');
+  20   1        LCD_DATA('u');
+  21   1        LCD_DATA('n');
+  22   1        LCD_DATA('e');
+  23   1        
+  24   1        LCD_CMD(0xC0);
+  25   1        LCD_DATA('W');
+  26   1        LCD_DATA('e');
+  27   1        LCD_DATA('l');
+  28   1        LCD_DATA('c');
+  29   1        LCD_DATA('o');
+  30   1        LCD_DATA('m');
+  31   1        LCD_DATA('e');
+  32   1      }
+  33          
+  34          void LCD_CMD(unsigned char cmd)
+  35          {
+  36   1        LED_port = cmd;
+  37   1        RS = 0;
+  38   1        RW = 0;
+  39   1        EN = 1;
+  40   1        delay(5);
+  41   1        EN = 0;
+  42   1        delay(5);
+  43   1      }
+  44          
+  45          void LCD_DATA(unsigned char datas)
+  46          {
+  47   1        LED_port = datas;
+  48   1        RS = 1;
+  49   1        RW = 0;
+  50   1        EN = 1;
+  51   1        delay(5);
+  52   1        EN = 0;
+  53   1        delay(5);
+  54   1      }
+C51 COMPILER V9.59.0.0   LCD_8BIT_MAIN_COM                                                 10/09/2023 17:13:46 PAGE 2   
+
+  55          
+  56          void init()
+  57          {
+  58   1        delay(5);
+  59   1        LCD_CMD(0x038);
+  60   1        LCD_CMD(0x0C);
+  61   1        LCD_CMD(0x06);
+  62   1        //LCD_CMD(0x001);
+  63   1      }
+  64          
+  65          void delay(unsigned int time)
+  66          {
+  67   1        int i,j;
+  68   1        for(i = 0; i < time; i++)
+  69   1        {
+  70   2          for(j = 0; j < 1000; j++);
+  71   2        }
+  72   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    158    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

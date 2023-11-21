@@ -1,0 +1,60 @@
+C51 COMPILER V9.59.0.0   LCD_EIGHTBIT_STRING                                               11/21/2023 12:36:18 PAGE 1   
+
+
+C51 COMPILER V9.59.0.0, COMPILATION OF MODULE LCD_EIGHTBIT_STRING
+OBJECT MODULE PLACED IN .\Objects\LCD_EightBit_String.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE LCD_EightBit_String.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(
+                    -.\Listings\LCD_EightBit_String.lst) TABS(2) OBJECT(.\Objects\LCD_EightBit_String.obj)
+
+line level    source
+
+   1          #include<reg51.h>
+   2          #include"LCD_EightBit_String.h"
+   3          #include"delay.h"
+   4          
+   5          void LCD_cmd(unsigned char cmd)
+   6          {
+   7   1        LCD_port = cmd;
+   8   1        RS = 0;
+   9   1        RW = 0;
+  10   1        EN = 1;
+  11   1        delay(5);
+  12   1        EN = 0;
+  13   1        delay(5);
+  14   1      }
+  15          
+  16          void LCD_data(unsigned char dat)
+  17          {
+  18   1        
+  19   1        LCD_port = dat;
+  20   1        RS = 1;
+  21   1        RW = 0;
+  22   1        EN = 1;
+  23   1        delay(5);
+  24   1        EN = 0;
+  25   1        delay(5);
+  26   1      }
+  27          
+  28          void init()
+  29          {
+  30   1        
+  31   1        delay(5);
+  32   1        LCD_cmd(0x38);
+  33   1        LCD_cmd(0x0C);
+  34   1        LCD_cmd(0x06);
+  35   1      }
+  36          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     70    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
